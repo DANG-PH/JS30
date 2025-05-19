@@ -280,3 +280,24 @@ button{
 .cont.s-signup .sign-up{
           transform:translate3d(0, 0, 0);
 }
+@keyframes fall {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, 100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.falling-leaf {
+    position: fixed;
+    top: -50px;
+    font-size: 12px;
+    pointer-events: none;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 9999;
+    opacity: 0.8;
+}
