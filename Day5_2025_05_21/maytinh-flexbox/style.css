@@ -1,0 +1,43 @@
+.body{
+    display:flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+    /* tai sao khong can giua ? */
+}
+.clc {
+    background-color: #CBCCCB;
+    padding:40px;
+    width:450px;
+    border-radius:10px;
+    margin:200px auto;
+}
+.thanhkq{
+    background:white;
+    height:90px;
+    margin-bottom: 6px;
+}   
+.nutbam{
+    display:flex;
+    flex-wrap: wrap;
+}
+button{
+    width: 25%;
+    box-sizing: border-box;
+    padding:35px;
+    font-size: 25px;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    border:1px solid white;
+}
+button:hover{
+    background:#aaa;
+}
+.dacbiet{
+    background:#FECD05;
+    color:#faf4c0;
+}
+.dacbiet:hover{
+    background:#e0a800;
+}
