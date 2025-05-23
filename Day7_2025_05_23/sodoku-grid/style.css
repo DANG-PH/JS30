@@ -1,0 +1,53 @@
+body{
+    height:100vh;
+    display:grid;
+    place-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 335px;
+    height:auto;
+    background-color: #fff8dc;
+    text-align: center;
+    padding:20px;
+}
+.the {
+    display:flex;
+    flex-wrap: wrap;
+}
+.the img{
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+
+}
+.the div{
+    width: calc(33.33% - 10px);
+    margin: 5px;
+    aspect-ratio: 1 / 1; /* Tạo hình vuông */
+    box-sizing: border-box;
+    border: 3px solid #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.the1 {
+    display:flex;
+    flex-wrap: wrap;
+    width:85%;
+    margin:auto;
+}
+.the1 img{
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+.the1 div{
+    width: 33.33%;
+    aspect-ratio: 1 / 1; /* Tạo hình vuông */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
