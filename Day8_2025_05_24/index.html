@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clc">
+        <div class="thanhkq"></div>
+        <div class="nutbam">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="dacbiet">+</button>
+
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="dacbiet">-</button>
+
+            <button >7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="dacbiet">x</button>
+
+            <button class="dacbiet">C</button>
+            <button class="dacbiet">0</button>
+            <button class="dacbiet"> =</button>
+            <button class="dacbiet">/</button>
+        </div>
+    </div>
+    <script>
+
+    var cac_nut = document.querySelectorAll('button');
+    console.log(cac_nut)
+    var man_hinh_hien_thi = document.querySelector('.thanhkq');
+    var bieu_thuc = '';
+    for (var i = 0; i < cac_nut.length; i++) {
+        cac_nut[i].onclick = function() {
+        var gia_tri_nut = this.textContent.trim();
+        if (gia_tri_nut === 'C') {
+            bieu_thuc = '';
+            man_hinh_hien_thi.textContent = bieu_thuc;   
+            return;                   
+        }
+        if (gia_tri_nut === '=') {
+            if (man_hinh_hien_thi === '') return;  
+            try {
+            var bieu_thuc_thay_doi = bieu_thuc.replace(/x/g, '*');
+            var ketqua = eval(bieu_thuc_thay_doi);
+            bieu_thuc = ketqua.toString();
+            man_hinh_hien_thi.textContent = bieu_thuc;
+            } catch (error) {
+            man_hinh_hien_thi.textContent = 'Lỗi';
+            bieu_thuc = '';
+            }
+            return;  
+        }
+        bieu_thuc += gia_tri_nut;
+        man_hinh_hien_thi.textContent = bieu_thuc;
+        }
+    }
+    </script>
+
+</body>
+</html>
