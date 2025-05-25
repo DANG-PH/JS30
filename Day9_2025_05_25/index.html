@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day9</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h2>Chọn ảnh nền trang</h2>
+        <select id="bg">
+            <option value="xiao2.jpg">Xiao</option>
+            <option value="zli2.webp">ZhongLi1</option>
+            <option value="zli3.jpg">Zhongli2</option>
+        </select>
+        <button onclick="doihinhnen()">Đổi ảnh nền</button>
+    </div>
+    <script>
+        function doihinhnen(){
+            const luachon = document.getElementById("bg");
+            const linkanh=luachon.value;
+            document.body.style.backgroundImage=`url('${linkanh}')`;
+        }
+    </script>
+</body>
+</html>

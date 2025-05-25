@@ -1,0 +1,25 @@
+div {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    text-align: center;
+    margin: auto;
+    background-color: rgba(255,255,255,0.4);
+    margin-top: 50px;
+    padding:20px;
+    border-radius: 10px;
+}
+div select {
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: #eee;
+
+}
+div button {
+    height: 30px;
+}
+body {
+    background-image: url('xiao2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
