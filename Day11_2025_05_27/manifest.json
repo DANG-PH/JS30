@@ -1,0 +1,13 @@
+{
+    "manifest_version":3,
+    "name":"Thay doi tieu de",
+    "version":"1.0",
+    "description":"Thay doi tieu de",
+    "content_scripts":[
+        {
+            "matches":["https://dantri.com.vn/*"],
+            "js":["main.js"],
+            "run_at":"document_idle"
+        }
+    ]
+}
