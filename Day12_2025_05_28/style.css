@@ -1,0 +1,40 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.clc {
+    background-color: #CBCCCB;
+    padding:40px;
+    width:450px;
+    border-radius:10px;
+    margin:200px auto;
+}
+.thanhkq{
+    background:white;
+    height:90px;
+    margin-bottom: 6px;
+}   
+.nutbam{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:6px
+}
+button{
+    padding:35px;
+    font-size: 25px;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    background:#aaa;
+}
+.dacbiet{
+    background:#FECD05;
+    color:#faf4c0;
+}
+.dacbiet:hover{
+    background:#e0a800;
+}
