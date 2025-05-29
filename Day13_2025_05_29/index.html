@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Them sinh vien vao danh sach</h2>
+    <input type="text" id="masv" placeholder="ma sv">
+    <input type="text" id="hoten" placeholder="ho ten">
+    <input type="text" id="email" placeholder="email">
+    <input type="text" id="sdt" placeholder="sodienthoai">
+    <button onclick="themthongtin()">Them</button>
+    <table>
+        <thead>
+            <tr>
+                <td>masv</td>
+                <td>hoten</td>
+                <td>email</td>
+                <td>sodienthoai</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script>
+        function themthongtin(){
+            let newrow=document.createElement("tr");
+            const masv=document.getElementById("masv").value;
+            const hoten=document.getElementById("hoten").value;
+            const email=document.getElementById("email").value;
+            const sdt=document.getElementById("sdt").value;
+            [masv,hoten,email,sdt].forEach(function(input){
+                let td =document.createElement("td");
+                td.textContent=input;
+                newrow.appendChild(td);
+            })
+            const tbody=document.getElementById("tbody")
+            tbody.appendChild(newrow)
+            document.getElementById("masv").value=''
+            document.getElementById("hoten").value=''
+            document.getElementById("email").value=''
+            document.getElementById("sdt").value=''
+        }
+    </script>
+</body>
+</html>
