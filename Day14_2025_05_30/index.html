@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Them sinh vien vao danh sach</h2>
+    <div style="display: flex;flex-direction: column;width:200px">
+        <input type="text" id="masv" placeholder="ma sv">
+        <input type="text" id="hoten" placeholder="ho ten">
+        <input type="text" id="email" placeholder="email">
+        <input type="text" id="sdt" placeholder="sodienthoai">
+        <button id="btn"onclick="themthongtin()">Them</button>
+    </div>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <td>masv</td>
+                <td>hoten</td>
+                <td>email</td>
+                <td>sodienthoai</td>
+                <td>hanh dong</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+    </table>
+    <script>
+        let dongdangsua=null
+        function themthongtin(){
+            const masv=document.getElementById("masv").value;
+            const hoten=document.getElementById("hoten").value;
+            const email=document.getElementById("email").value;
+            const sdt=document.getElementById("sdt").value;
+            if (!masv||!hoten||!email||!sdt){
+                alert("vui long nhap day du thong tin");
+                return
+            }
+            if (dongdangsua){
+                dongdangsua.cells[0].textContent=masv;
+                dongdangsua.cells[1].textContent=hoten;
+                dongdangsua.cells[2].textContent=email;
+                dongdangsua.cells[3].textContent=sdt;
+                dongdangsua = null;
+                document.getElementById('btn').textContent="Them"
+
+            }else{
+                const newrow=document.createElement("tr");
+                [masv,hoten,email,sdt].forEach(function(input){
+                    let td =document.createElement("td");
+                    td.textContent=input;
+                    newrow.appendChild(td);
+                });
+                let td1=document.createElement("td");
+                td1.innerHTML=`<button onclick="suathongtin(this)">sua</button>`
+                newrow.appendChild(td1)
+                const tbody=document.getElementById("tbody")
+                tbody.appendChild(newrow)
+            }
+            document.getElementById("masv").value=''
+            document.getElementById("hoten").value=''
+            document.getElementById("email").value=''
+            document.getElementById("sdt").value=''
+        }
+        function suathongtin(button){
+            const row=button.parentElement.parentElement;
+            document.getElementById("masv").value=row.cells[0].textContent;
+            document.getElementById("hoten").value=row.cells[1].textContent;
+            document.getElementById("email").value=row.cells[2].textContent;
+            document.getElementById("sdt").value=row.cells[3].textContent;
+            dongdangsua=row
+            document.getElementById("btn").textContent="Luu"
+        }
+    </script>
+</body>
+</html>
