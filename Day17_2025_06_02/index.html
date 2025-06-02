@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Quan ly san pham</h2>
+    <input type="text" id="id" placeholder="id">
+    <input type="text" id="name" placeholder="name">
+    <input type="number" id="giatri" placeholder="giatri">
+    <input type="number" id="soluong" placeholder="soluong">
+    <button onclick="themsp()" >Them</button>
+    <table border="1" style="border-collapse: collapse">
+        <thead>
+            <td>id</td>
+            <td>ten</td>
+            <td>gia</td>
+            <td>soluong</td>
+            <td>tonggiatri</td>
+            <td>hanhdong</td>
+        </thead>
+        <tbody id="danhsach"></tbody>
+    </table>
+    <p id="tongiatri">tong gia tri hang ton kho:</p>
+    <p id="spdatnhat">san pham dat nhat:</p>
+    <script>
+        class Product{
+            constructor(id,name,price,quantity){
+                this.id=id;
+                this.name=name;
+                this.price=price;
+                this.quantity=quantity;
+            }
+        }
+        let kho=[];
+        function capnhatbang(){
+            let tbody=document.getElementById("danhsach")
+            tbody.innerHTML=kho.map(sp => {
+                return `<tr>
+                    <td>${sp.id}</td>
+                    <td>${sp.name}</td>
+                    <td>${sp.price}</td>
+                    <td>${sp.quantity}</td>
+                    <td>${sp.price*sp.quantity}</td>
+                    <td>
+                        <button onclick="suasp('${sp.id}')">sua</button>
+                        <button onclick="xoasp('${sp.id}')">xoa</button>
+                    </td>
+                    </tr>`
+            }).join('')
+            let tong=0;
+            for (let i=0;i<kho.length;i++){
+                let sanpham=kho[i];
+                let giatri= sanpham.price*sanpham.quantity;
+                tong += giatri;
+            } //timspdatnhat
+            document.getElementById("tongiatri").innerText=`tong gia tri hang ton kho: ${tong}`
+            let spmax=kho[0];
+            for (let i=0;i<kho.length;i++){
+                if (kho[i].price>spmax.price){
+                    spmax=kho[i]
+                }
+            }//timsanphamdatnhat
+            document.getElementById("spdatnhat").innerText=`san pham dat nhat: ${spmax.name} (${spmax.price})`
+        }     
+        function themsp(){
+            let id=document.getElementById("id").value.trim();
+            let name=document.getElementById("name").value.trim();
+            let price = parseFloat(document.getElementById("giatri").value);
+            let quantity = parseInt(document.getElementById("soluong").value);;
+            //neu id bang id trong kho
+            if (kho.find(sp=> sp.id===id)) {
+                alert("sp nay da ton tai");
+                return
+            }
+            //nhap chua du thong tin
+            if (!id||!name||!price||!quantity){
+                alert("vui long nhap du thong tin");
+                return
+            }
+            kho.push(new Product(id,name,price,quantity));
+            capnhatbang();
+            document.getElementById("id").value="";
+            document.getElementById("name").value="";
+            document.getElementById("soluong").value="";
+            document.getElementById("giatri").value="";
+        }  
+        function xoasp(id){
+            kho = kho.filter(sp => sp.id !== id);
+            //lam lai kho moi khong co id
+            //cap nhat lai bang
+            capnhatbang();
+        }
+        function suasp(id){
+            let sp=kho.find(sp=> sp.id===id);
+            if (sp){
+                document.getElementById("id").value=sp.id;
+                document.getElementById("name").value=sp.name;
+                document.getElementById("soluong").value=sp.quantity;
+                document.getElementById("giatri").value=sp.price;
+                xoasp(id) //xoa sp de khong bi trung lap san pham khi sua
+            }
+        }
+
+    </script>
+</body>
+</html>
